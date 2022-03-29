@@ -1,9 +1,9 @@
-#
 import requests
 import pandas as pd
 from sqlalchemy import create_engine
 
-price = requests.get('https://api.binance.com/api/v3/ticker/price') # Ativos e preços.
+# Ativos e preços requests API.
+price = requests.get('https://api.binance.com/api/v3/ticker/price')
 price_list = []
 
 if price.status_code == 200:
