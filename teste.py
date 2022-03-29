@@ -22,8 +22,7 @@ else:
 for c in price_list:
    print(c)
 
-   # Transformando price_list em um DataFrame (Tatando dados com pandas.)
-
+# Transformando price list em um DataFrame (Tratando dados com pandas.)
 df_price_list = pd.DataFrame(
    price_list, 
    columns=[
