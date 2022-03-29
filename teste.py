@@ -3,26 +3,35 @@ import requests
 import pandas as pd
 from sqlalchemy import create_engine
 
-
 price = requests.get('https://api.binance.com/api/v3/ticker/price') # Ativos e preços.
 price_list = []
-
 
 if price.status_code == 200:
    data = price.json()
    for i in data:
-      price_list.append([i['symbol'], i['price']])
+      price_list.append(        
+         [
+            i['symbol'], 
+            i['price']
+         ]
+      )
 else:
    erro = price.raise_for_status()
    print(f'Ocorreu o seguinte erro no acesso da API: {erro}')
-
-# Transformando price_list em um DataFrame
-
-df_price_list = pd.DataFrame(price_list, columns=['symbol', 'price'])  #Tratando Dados com pandas.
-print(df_lista_precos)
-
+   
 for c in price_list:
    print(c)
+
+   # Transformando price_list em um DataFrame (Tatando dados com pandas.)
+
+df_price_list = pd.DataFrame(
+   price_list, 
+   columns=[
+               'symbol', 
+               'price'
+           ]
+    )
+print(df_lista_precos)
 
 # Preparando a conexão e gravando em uma tabela no banco de dados.
 
