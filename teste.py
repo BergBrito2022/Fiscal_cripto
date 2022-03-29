@@ -36,4 +36,9 @@ print(df_lista_precos)
 
 db_connection = 'mysql+pymysql://user:password@host:port/database'  
 db_connection = create_engine(db_connection)
-df_price_list.to_sql(con=db_connection, name='price_list_binanc', if_exists='replace', index=False)
+df_price_list.to_sql(
+                     con=db_connection, 
+                     name='price_list_binanc', 
+                     if_exists='replace', i
+                     ndex=False
+   )
